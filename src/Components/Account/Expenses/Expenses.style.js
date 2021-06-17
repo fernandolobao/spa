@@ -16,11 +16,11 @@ const StyledExpenses = styled.div.attrs({ className: 'expenses'})`
           border-radius: 8px;
           padding: 12px;
           align-self: center;
-          &.up {
+          &.in {
             color: #33CC33;
             background-color: #d6f5d6;
           }
-          &.down {
+          &.out {
             color: #8B0000;
             background-color: #ffe6e6;
           }

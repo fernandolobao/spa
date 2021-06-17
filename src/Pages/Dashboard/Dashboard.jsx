@@ -11,11 +11,11 @@ const Dashboard = () => {
   return (
     <Container fluid>
       <Row>
-        <Col xs={3}>
-          <Overview />
-        </Col>
         <Col xs={9}>
           <Account />
+        </Col>
+        <Col xs={3}>
+          <Overview />
         </Col>
       </Row>
     </Container>

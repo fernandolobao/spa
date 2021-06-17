@@ -7,7 +7,9 @@ import { Chart } from 'react-google-charts';
 import { History } from './History';
 import StyledExpenses from './Expenses.style';
 
-const Expenses = () => {
+const Expenses = ({
+  transactions
+}) => {
   console.log('Expenses Ready');
 
   return (
@@ -15,7 +17,7 @@ const Expenses = () => {
       <Row>
         <Col xs={6}>
           <h4>Extrato</h4>
-          <History />
+          <History transactions={transactions} />
         </Col>
         <Col xs={6}>
           <Row>

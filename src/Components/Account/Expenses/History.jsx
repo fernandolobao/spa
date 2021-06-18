@@ -20,7 +20,7 @@ const History = ({
             <div className={`icon-wrapper ${transaction.type}`}>
               <Icon icon="zap" size={24} />
             </div>
-            <div>
+            <div className="transaction">
               <strong>{transaction.corp}</strong>
               <small className="text-muted">{formatDate(transaction.date)}</small>
             </div>

@@ -8,21 +8,43 @@ import { Expenses } from './Expenses'
 import StyledAccount from './Account.style';
 import { Profile } from '../Profile';
 import { Icon } from '../Icon';
+import { actions } from './actions';
 
 const Account = () => {
-  const [key, setKey] = useState('resumo');
+  const [key, setKey] = useState('extrato');
   return (
     <Context.Consumer>
       {context => (
         <StyledAccount>
-          <Profile />
+          <Profile user={{
+            name: context.name,
+            photo: context.photo,
+            agency: context.agency,
+            account: context.account,
+            balance: context.balance,
+            approvedCredit: context.approvedCredit,
+            usedCredit: context.usedCredit
+          }} />
           <Tab.Container
             activeKey={key}
-            defaultActiveKey="resumo"
+            defaultActiveKey="extrato"
             onSelect={(x) => setKey(x)}
           >
             <Nav variant="pills" className="flex-row">
-              <Nav.Item>
+              {actions.map((action) => (
+                <Nav.Item key={action.alias} className={action.status
+                  ? 'action-item'
+                  : 'action-disabled' }>
+                  <Nav.Link disabled={!action.status} eventKey={action.alias}>
+                    <Icon
+                      icon={action.icon}
+                      size={24}
+                    />
+                    <span>{action.name}</span>
+                  </Nav.Link>
+                </Nav.Item>
+              ))}
+              {/* <Nav.Item>
                 <Nav.Link eventKey="resumo">
                   <Icon
                     icon="zap"
@@ -57,11 +79,11 @@ const Account = () => {
                   />
                   <span>Pagamento</span>
                 </Nav.Link>
-              </Nav.Item>
+              </Nav.Item> */}
             </Nav>
           </Tab.Container>
           <Tab.Content>
-            <Tab.Pane eventKey="resumo" active={key === 'resumo'}>
+            <Tab.Pane eventKey="extrato" active={key === 'extrato'}>
               <Expenses transactions={context.history} />
             </Tab.Pane>
             <Tab.Pane eventKey="deposito" active={key === 'deposito'}>

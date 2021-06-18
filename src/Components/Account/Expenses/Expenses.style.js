@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DesignToken } from '../../../Style';
 
 const StyledExpenses = styled.div.attrs({ className: 'expenses'})`
   .history {
@@ -9,12 +10,14 @@ const StyledExpenses = styled.div.attrs({ className: 'expenses'})`
       li {
         display: flex;
         &:not(:last-child) {
-          margin-bottom: 8px;
+          margin-bottom: ${DesignToken('$spacing-sm')};
+          padding-bottom: ${DesignToken('$spacing-sm')};
+          border-bottom: 1px solid ${DesignToken('$grey')}
         }
         .icon-wrapper {
-          margin-right: 8px;
-          border-radius: 8px;
-          padding: 12px;
+          margin-right: ${DesignToken('$spacing-sm')};
+          border-radius: ${DesignToken('$border-circle')};
+          padding: ${DesignToken('$spacing-md')};
           align-self: center;
           &.in {
             color: #33CC33;
@@ -24,6 +27,11 @@ const StyledExpenses = styled.div.attrs({ className: 'expenses'})`
             color: #8B0000;
             background-color: #ffe6e6;
           }
+        }
+        .transaction, .value {
+          display: flex;
+          flex-direction: column;
+          align-self: center;
         }
         strong {
           display: flex;

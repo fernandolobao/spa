@@ -13,7 +13,7 @@ export const Provider = ({
   const [history, setHistory] = useState(transactions);
   const initialData = {
     name: 'Fernando Camilotti Monteiro',
-    photo: 'https://i.pravatar.cc/150?u=fernando@fernandocamilotti.com',
+    photo: 'https://i.pravatar.cc/150?u=fernandocamilotti',
     agency: 1766-9,
     account: 44520-6,
     balance,

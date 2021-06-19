@@ -6,6 +6,8 @@ import {
 import { Context } from '../../Context/Context';
 import { Expenses } from './Expenses';
 import { Deposit } from './Deposit';
+import { Withdraw } from './Withdraw';
+import { Payment } from './Payment';
 import StyledAccount from './Account.style';
 import { Profile } from '../Profile';
 import { Icon } from '../Icon';
@@ -52,13 +54,13 @@ const Account = () => {
               <Expenses transactions={context.history} />
             </Tab.Pane>
             <Tab.Pane eventKey="deposito" active={key === 'deposito'}>
-              <Deposit />
+              <Deposit setBalance={context.setBalance} setHistory={context.setHistory} />
             </Tab.Pane>
             <Tab.Pane eventKey="resgate" active={key === 'resgate'}>
-              Resgate
+              <Withdraw setBalance={context.setBalance} setHistory={context.setHistory} />
             </Tab.Pane>
             <Tab.Pane eventKey="pagamento" active={key === 'pagamento'}>
-              Pagamento
+              <Payment setBalance={context.setBalance} setHistory={context.setHistory} />
             </Tab.Pane>
           </Tab.Content>
         </StyledAccount>

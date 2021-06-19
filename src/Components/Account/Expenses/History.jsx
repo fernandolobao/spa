@@ -11,14 +11,15 @@ const formatDate = (date) => {
 const History = ({
   transactions,
   inValue = false,
-  outValue = false
+  outValue = false,
+  paymentValue = false
 }) => (
   <>
     {inValue && (
       <div className="history in">
         <h5>Entrada</h5>
         <ul>
-          {transactions.filter((transaction) => transaction.type === 'in').map((transaction) => (
+          {transactions.filter((transaction) => transaction.type === 'in').reverse().map((transaction) => (
             <li key={transaction.id}>
               <div className={`icon-wrapper ${transaction.type}`}>
                 <Icon icon="zap" size={24} />
@@ -28,10 +29,7 @@ const History = ({
                 <small className="text-muted">{formatDate(transaction.date)}</small>
               </div>
               <span className="value">
-                {transaction.type === 'in'
-                  ? `+ R$ ${transaction.value}`
-                  : `- R$ ${transaction.value}`
-                }
+                {`+ R$ ${transaction.value.toFixed(2).replace('.', ',')}`}
               </span>
             </li>
           ))}
@@ -42,27 +40,51 @@ const History = ({
       <div className="history out">
         <h5>Saída</h5>
         <ul>
-          {transactions.filter((transaction) => transaction.type === 'out').map((transaction) => (
+          {transactions.filter((transaction) => {
+            if (transaction.type === 'out' || transaction.type === 'payment') return transaction;
+            return false
+          }).filter(Boolean).reverse().map((transaction) => (
             <li key={transaction.id}>
               <div className={`icon-wrapper ${transaction.type}`}>
-                <Icon icon="zap" size={24} />
+                <Icon icon={transaction.category} size={24} />
               </div>
               <div className="transaction">
                 <strong>{transaction.corp}</strong>
                 <small className="text-muted">{formatDate(transaction.date)}</small>
               </div>
               <span className="value">
-                {transaction.type === 'in'
-                  ? `+ R$ ${transaction.value}`
-                  : `- R$ ${transaction.value}`
-                }
+                {`- R$ ${transaction.value.toFixed(2).replace('.', ',')}`}
               </span>
             </li>
           ))}
         </ul>
       </div>
     )}
-</>
+    {paymentValue && (
+      <div className="history out">
+        <h5>Recentes</h5>
+        <ul>
+          {transactions.filter((transaction) => {
+            if (transaction.type === 'payment') return transaction;
+            return false
+          }).filter(Boolean).reverse().map((transaction) => (
+            <li key={transaction.id}>
+              <div className={`icon-wrapper ${transaction.type}`}>
+                <Icon icon={transaction.category} size={24} />
+              </div>
+              <div className="transaction">
+                <strong>{transaction.corp}</strong>
+                <small className="text-muted">{formatDate(transaction.date)}</small>
+              </div>
+              <span className="value">
+                {`- R$ ${transaction.value.toFixed(2).replace('.', ',')}`}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </>
 );
 
 export {

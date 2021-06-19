@@ -5,7 +5,7 @@ export const transactions = [
     corp: 'Aluguel',
     value: 2470.84,
     date: new Date(2021, 5, 12),
-    type: 'out'
+    type: 'payment'
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const transactions = [
     corp: 'Companhia Estadual de Energia Elétrica',
     value: 125.45,
     date: new Date(2021, 5, 13),
-    type: 'out'
+    type: 'payment'
   },
   {
     id: 3,
@@ -29,11 +29,11 @@ export const transactions = [
     corp: 'Padaria Nossa Senhora dos Pães',
     value: 38.00,
     date: new Date(2021, 5, 14),
-    type: 'out'
+    type: 'payment'
   },
   {
     id: 5,
-    category: 'dollar-sign',
+    category: 'user',
     corp: 'TED',
     value: 75.00,
     date: new Date(2021, 5, 15),
@@ -41,7 +41,7 @@ export const transactions = [
   },
   {
     id: 6,
-    category: 'dollar-sign',
+    category: 'user',
     corp: 'TED',
     value: 250.00,
     date: new Date(2021, 5, 16),
@@ -53,7 +53,7 @@ export const transactions = [
     corp: 'Delubery co.',
     value: 12.53,
     date: new Date(2021, 5, 17),
-    type: 'in'
+    type: 'payment'
   },
   {
     id: 8,
@@ -69,7 +69,7 @@ export const transactions = [
     corp: 'Companhia Estadual de Energia Elétrica',
     value: 125.45,
     date: new Date(2021, 4, 13),
-    type: 'out'
+    type: 'payment'
   },
   {
     id: 10,
@@ -81,7 +81,7 @@ export const transactions = [
   },
   {
     id: 11,
-    category: 'shopping-bag',
+    category: 'user',
     corp: 'Padaria Nossa Senhora dos Pães',
     value: 38.00,
     date: new Date(2021, 4, 14),
@@ -93,7 +93,7 @@ export const transactions = [
     corp: 'Mercado Pague && Leve',
     value: 27.00,
     date: new Date(2021, 4, 15),
-    type: 'out'
+    type: 'payment'
   },
 ];
 

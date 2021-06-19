@@ -1,12 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
-import {
-  Card,
-  Col,
-  ListGroup,
-  ProgressBar,
-  Row
-} from 'react-bootstrap';
 import { Context } from '../../Context/Context';
 import { Icon } from '../Icon';
 import StyledOverview from './Overview.style';

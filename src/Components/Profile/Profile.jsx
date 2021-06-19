@@ -1,5 +1,4 @@
 import React from 'react';
-import context from 'react-bootstrap/esm/AccordionContext';
 import { StyledProfile } from './Profile.style';
 
 export const Profile = ({
@@ -18,8 +17,8 @@ export const Profile = ({
         </div>
       </span>
       <span>
-        <div>Saldo em conta: <h5>R$ {user.balance}</h5></div>
-        <div>Crédito disponível: <h5>R$ {user.approvedCredit - user.usedCredit}</h5></div>
+        <div>Saldo em conta: <h5>R$ {user.balance.toFixed(2).replace('.', ',')}</h5></div>
+        <div>Crédito disponível: <h5>R$ {(user.approvedCredit - user.usedCredit).toFixed(2).replace('.', ',')}</h5></div>
       </span>
     </div>
   </StyledProfile>

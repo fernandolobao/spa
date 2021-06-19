@@ -12,7 +12,7 @@ const StyledOverview = styled.div.attrs({ className: 'container-fluid'})`
       border-radius: ${DesignToken('$border-circle')};
       position: absolute;
       top: 90px;
-      z-index: 9999;
+      z-index: 999;
       background-color: ${DesignToken('$white')};
       color: ${DesignToken('$primary-highlight')};
       border: 1px solid ${DesignToken('$primary-highlight')};
@@ -39,7 +39,7 @@ const StyledOverview = styled.div.attrs({ className: 'container-fluid'})`
   
       &.show {
         opacity: 1;
-        z-index: 999;
+        z-index: 998;
       }
       &.hidden {
         opacity: 0.5;

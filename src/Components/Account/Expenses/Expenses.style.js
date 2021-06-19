@@ -28,7 +28,7 @@ const StyledExpenses = styled.div.attrs({ className: 'expenses'})`
             color: #33CC33;
             background-color: #d6f5d6;
           }
-          &.out {
+          &.out, &.payment {
             color: #8B0000;
             background-color: #ffe6e6;
           }

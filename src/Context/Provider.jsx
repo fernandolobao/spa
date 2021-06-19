@@ -27,7 +27,7 @@ export const Provider = ({
     },
     history,
     setHistory: (transaction) => {
-      setHistory([transaction, ...transactions])
+      setHistory([...transactions, transaction])
     },
     creditCards
   };

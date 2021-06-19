@@ -4,7 +4,7 @@ import {
   Form,
   InputGroup
 } from 'react-bootstrap';
-import StyledDeposit from './Deposit.style';
+import StyledWithdraw from './Withdraw.style';
 import StyledExpenses from '../Expenses/Expenses.style';
 import { Icon } from '../../Icon';
 import { Context } from '../../../Context/Context';
@@ -12,7 +12,7 @@ import { History } from '../Expenses/History';
 import { CodeTransfer } from '../CodeTransfer';
 import { ReadCamera } from '../ReadCamera';
 
-const Deposit = ({
+const Withdraw = ({
   setBalance,
   setHistory
 }) => {
@@ -35,7 +35,7 @@ const Deposit = ({
   }
 
   return (
-    <StyledDeposit>
+    <StyledWithdraw>
       <div className="input">
         <Form>
           <Button variant="link" onClick={() => setCamera(true)}>
@@ -64,7 +64,7 @@ const Deposit = ({
                     onClick={!valid && value !== '' ? () => {}  : () => setShow(true)}
                   >
                     <Icon
-                      icon="download"
+                      icon="upload"
                       size={16}
                     />
                   </Button>
@@ -81,16 +81,17 @@ const Deposit = ({
         {context => (
           <>
             <StyledExpenses>
-              <History transactions={context.history} inValue />
+              <History transactions={context.history} outValue />
             </StyledExpenses>
             {show && (
               <CodeTransfer
                 open={show}
                 onToggle={setShow}
-                isDeposit
-                isWithdraw={false}
-                setBalance={setBalance}
-                setHistory={setHistory}
+                isDeposit={false}
+                isWithdraw
+                setBalance= {setBalance}
+                setHistory= {setHistory}
+                seconds={10}
                 codeValue={payloadBuilder(context.agency, context.account, context.name, context.value)} />
             )}
             {camera && (
@@ -102,10 +103,10 @@ const Deposit = ({
           </>
         )}
       </Context.Consumer>
-    </StyledDeposit>
+    </StyledWithdraw>
   );
 }
 
 export {
-  Deposit
+  Withdraw
 };

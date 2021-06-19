@@ -4,7 +4,8 @@ import {
   Nav
 } from 'react-bootstrap';
 import { Context } from '../../Context/Context';
-import { Expenses } from './Expenses'
+import { Expenses } from './Expenses';
+import { Deposit } from './Deposit';
 import StyledAccount from './Account.style';
 import { Profile } from '../Profile';
 import { Icon } from '../Icon';
@@ -44,42 +45,6 @@ const Account = () => {
                   </Nav.Link>
                 </Nav.Item>
               ))}
-              {/* <Nav.Item>
-                <Nav.Link eventKey="resumo">
-                  <Icon
-                    icon="zap"
-                    size={24}
-                  />
-                  <span>Resumo</span>
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="deposito">
-                <Icon
-                    icon="zap"
-                    size={24}
-                  />
-                  <span>Depósito</span>
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="resgate">
-                <Icon
-                    icon="zap"
-                    size={24}
-                  />
-                  <span>Resgate</span>
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="pagamento">
-                <Icon
-                    icon="zap"
-                    size={24}
-                  />
-                  <span>Pagamento</span>
-                </Nav.Link>
-              </Nav.Item> */}
             </Nav>
           </Tab.Container>
           <Tab.Content>
@@ -87,7 +52,7 @@ const Account = () => {
               <Expenses transactions={context.history} />
             </Tab.Pane>
             <Tab.Pane eventKey="deposito" active={key === 'deposito'}>
-              Depósito
+              <Deposit />
             </Tab.Pane>
             <Tab.Pane eventKey="resgate" active={key === 'resgate'}>
               Resgate

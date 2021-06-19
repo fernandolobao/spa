@@ -2,7 +2,12 @@ import styled from 'styled-components';
 import { DesignToken } from '../../../Style';
 
 const StyledExpenses = styled.div.attrs({ className: 'expenses'})`
+  .columns {
+    display: flex;
+    flex-direction: row;
+  }
   .history {
+    width: 100%;
     ul {
       list-style: none;
       padding: 0;
@@ -12,7 +17,7 @@ const StyledExpenses = styled.div.attrs({ className: 'expenses'})`
         &:not(:last-child) {
           margin-bottom: ${DesignToken('$spacing-sm')};
           padding-bottom: ${DesignToken('$spacing-sm')};
-          border-bottom: 1px solid ${DesignToken('$grey')}
+          border-bottom: 1px solid ${DesignToken('$primary-darker')}
         }
         .icon-wrapper {
           margin-right: ${DesignToken('$spacing-sm')};
@@ -44,6 +49,9 @@ const StyledExpenses = styled.div.attrs({ className: 'expenses'})`
           margin-right: 8px;
         }
       }
+    }
+    &.in {
+      margin-right: ${DesignToken('$spacing-lg')};
     }
   }
 `;

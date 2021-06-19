@@ -6,21 +6,18 @@ import {
 } from 'react-bootstrap';
 import { Account, Overview } from '../../Components';
 
-const Dashboard = () => {
-  console.log('App Ready');
-  return (
-    <Container fluid>
-      <Row>
-        <Col xs={9}>
-          <Account />
-        </Col>
-        <Col xs={3}>
-          <Overview />
-        </Col>
-      </Row>
-    </Container>
-  );
-};
+const Dashboard = () => (
+  <Container fluid>
+    <Row>
+      <Col xs={8}>
+        <Account />
+      </Col>
+      <Col xs={4}>
+        <Overview />
+      </Col>
+    </Row>
+  </Container>
+);
 
 export {
   Dashboard

@@ -1,4 +1,7 @@
 # SPA para simulação de features
+
+Para rodar a aplicação: `npm start`
+
 Para instalar as dependências: `npm install`
 
 Para rodar os testes: `npm run test`
@@ -48,3 +51,5 @@ Foram feitos testes para as funcionalidades básicas e componentes de ícone e h
 ⬜️ Autenticação usando token
 
 ⬜️ Loader spinners para troca de telas com mínimo de 150ms de espera.
+
+✅ Husky 6.0 com pre-hooks e lint staged

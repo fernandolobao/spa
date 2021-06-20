@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "pre-commit": "lint-staged && git add .",
+    "pre-push": "npm run test:all"
+  }
+}

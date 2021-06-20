@@ -3,9 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { Payment } from './Payment';
 
 test('Payment is rendered properly', () => {
-  render(
-    <Payment />
-  );
+  render(<Payment />);
   const paymentNode = screen.getByTestId('payment');
   const inputsNode = paymentNode.getElementsByClassName('form-control');
 
@@ -15,9 +13,7 @@ test('Payment is rendered properly', () => {
 });
 
 test('Payment changes value correctly', () => {
-  render(
-    <Payment />
-  );
+  render(<Payment />);
   const paymentNode = screen.getByTestId('payment');
   const inputsNode = paymentNode.getElementsByClassName('form-control');
 

@@ -16,7 +16,7 @@ const History = ({
 }) => (
   <>
     {inValue && (
-      <div className="history in">
+      <div data-testid="history" className="history in">
         <h5>Entrada</h5>
         <ul>
           {transactions.filter((transaction) => transaction.type === 'in').reverse().map((transaction) => (
@@ -37,7 +37,7 @@ const History = ({
       </div>
     )}
     {outValue && (
-      <div className="history out">
+      <div data-testid="history" className="history out">
         <h5>Saída</h5>
         <ul>
           {transactions.filter((transaction) => {
@@ -61,7 +61,7 @@ const History = ({
       </div>
     )}
     {paymentValue && (
-      <div className="history out">
+      <div data-testid="history" className="history out">
         <h5>Recentes</h5>
         <ul>
           {transactions.filter((transaction) => {

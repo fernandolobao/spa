@@ -14,8 +14,8 @@ export const Provider = ({
   const initialData = {
     name: 'Fernando C Monteiro',
     photo: 'https://i.pravatar.cc/150?u=fernandocamilotti',
-    agency: 1766-9,
-    account: 44520-6,
+    agency: '1766-9',
+    account: '44520-6',
     balance,
     setBalance: (value) => {
       setBalance(balance + value);
@@ -23,11 +23,11 @@ export const Provider = ({
     approvedCredit: 8000.00,
     usedCredit,
     setUsedCredit: (value) => {
-      setUsedCredit(usedCredit + value)
+      setUsedCredit(usedCredit + value);
     },
     history,
     setHistory: (transaction) => {
-      setHistory([...transactions, transaction])
+      setHistory([...transactions, transaction]);
     },
     creditCards
   };

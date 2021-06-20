@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { DesignToken } from '../../Style';
 
-const StyledAccount = styled.nav.attrs({ className: 'nav-account'})`
+const StyledAccount = styled.nav.attrs({ className: 'nav-account' })`
   .nav.nav-pills {
     border: none;
     margin-bottom: 8px;

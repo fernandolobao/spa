@@ -17,17 +17,18 @@ const Account = () => {
   const [key, setKey] = useState('extrato');
   return (
     <Context.Consumer>
-      {context => (
+      {(context) => (
         <StyledAccount>
           <Profile user={{
-            name: context.name,
-            photo: context.photo,
-            agency: context.agency,
-            account: context.account,
-            balance: context.balance,
-            approvedCredit: context.approvedCredit,
-            usedCredit: context.usedCredit
-          }} />
+              name: context.name,
+              photo: context.photo,
+              agency: context.agency,
+              account: context.account,
+              balance: context.balance,
+              approvedCredit: context.approvedCredit,
+              usedCredit: context.usedCredit
+            }}
+          />
           <Tab.Container
             activeKey={key}
             defaultActiveKey="extrato"
@@ -35,9 +36,12 @@ const Account = () => {
           >
             <Nav variant="pills" className="flex-row">
               {actions.map((action) => (
-                <Nav.Item key={action.alias} className={action.status
+                <Nav.Item
+                  key={action.alias}
+                  className={action.status
                   ? 'action-item'
-                  : 'action-disabled' }>
+                  : 'action-disabled'}
+                >
                   <Nav.Link disabled={!action.status} eventKey={action.alias}>
                     <Icon
                       icon={action.icon}
@@ -60,14 +64,14 @@ const Account = () => {
               <Withdraw setBalance={context.setBalance} setHistory={context.setHistory} />
             </Tab.Pane>
             <Tab.Pane eventKey="pagamento" active={key === 'pagamento'}>
-              <Payment setBalance={context.setBalance} setHistory={context.setHistory} />
+              <Payment />
             </Tab.Pane>
           </Tab.Content>
         </StyledAccount>
       )}
     </Context.Consumer>
   );
-}
+};
 
 export {
   Account

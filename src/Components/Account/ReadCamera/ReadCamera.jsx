@@ -12,7 +12,7 @@ const ReadCamera = ({
   const [value, setValue] = useState('');
 
   return (
-    <Modal size="lg" show={open} onHide={() => onToggle(false)} >
+    <Modal data-testid="read-camera" size="lg" show={open} onHide={() => onToggle(false)}>
       <Modal.Header closeButton>
         <Modal.Title>
           Aproxime o código da câmera
@@ -24,8 +24,8 @@ const ReadCamera = ({
             width={500}
             height={500}
             onUpdate={(err, result) => {
-              if (result) setValue(result.text)
-              else setValue('')
+              if (result) setValue(result.text);
+              else setValue('');
             }}
           />
           <p style={{ marginTop: '16px' }}>{value}</p>

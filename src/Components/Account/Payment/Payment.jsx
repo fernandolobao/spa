@@ -13,8 +13,7 @@ import { CodeTransfer } from '../CodeTransfer';
 import { ReadCamera } from '../ReadCamera';
 
 const Payment = ({
-  setBalance,
-  setHistory
+  context
 }) => {
   const [value, setValue] = useState('');
   const [agency, setAgency] = useState('');
@@ -42,27 +41,27 @@ const Payment = ({
   const handleChange = (e) => {
     setValue(e.target.value);
     setValid(e.target.value.match(/[0-9]+[,.][0-9]{2}/gi));
-  }
+  };
   const handleAgency = (e) => {
     setAgency(e.target.value);
     setValidAg(e.target.value.match(/[0-9]{4}[-][0-9]{1}/gi));
-  }
+  };
   const handleAccount = (e) => {
     setAccount(e.target.value);
     setValidCc(e.target.value.match(/[0-9]{5}[-][0-9]{1}/gi));
-  }
-  const payloadBuilder = ({agency, account, name}) => {
+  };
+  const payloadBuilder = (ag, cc, n) => {
     const temp = {
-      name,
-      agency,
-      account,
+      name: n,
+      agency: ag,
+      account: cc,
       value
     };
     return temp;
-  }
+  };
 
   return (
-    <StyledPayment>
+    <StyledPayment data-testid="payment">
       <div className="input">
         <Form>
           <Button variant="link" onClick={() => setCamera(true)}>
@@ -72,7 +71,9 @@ const Payment = ({
             />
           </Button>
           <div>
-            <Form.Label>Use a câmera para ler o QRCode ou digite os dados para gerar um código.</Form.Label>
+            <Form.Label>
+              Use a câmera para ler o QRCode ou digite os dados para gerar um código.
+            </Form.Label>
             <InputGroup>
               <InputGroup.Prepend>
                 <InputGroup.Text>Agência</InputGroup.Text>
@@ -116,14 +117,14 @@ const Payment = ({
                   <Button
                     variant="link"
                     disabled={!allValid}
-                    onClick={!allValid ? () => {}  : () => setShow(true)}
+                    onClick={!allValid ? () => {} : () => setShow(true)}
                   >
                     <Icon
                       icon="credit-card"
                       size={16}
                     />
                   </Button>
-                  </InputGroup.Text>
+                </InputGroup.Text>
               </InputGroup.Append>
               <Form.Control.Feedback type="invalid">
                 Digite o valor no formato XX,XX
@@ -133,7 +134,7 @@ const Payment = ({
         </Form>
       </div>
       <Context.Consumer>
-        {context => (
+        {context && (
           <>
             <StyledExpenses>
               <History transactions={context.history} paymentValue />
@@ -144,10 +145,15 @@ const Payment = ({
                 onToggle={setShow}
                 isDeposit={false}
                 isWithdraw={false}
-                setBalance= {setBalance}
-                setHistory= {setHistory}
+                setBalance={context.setBalance}
+                setHistory={context.setHistory}
                 seconds={10}
-                codeValue={payloadBuilder(context.agency, context.account, context.name, context.value)}
+                codeValue={payloadBuilder(
+                  context.agency,
+                  context.account,
+                  context.name,
+                  context.value
+                )}
               />
             )}
             {camera && (
@@ -161,7 +167,7 @@ const Payment = ({
       </Context.Consumer>
     </StyledPayment>
   );
-}
+};
 
 export {
   Payment

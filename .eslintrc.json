@@ -1,0 +1,51 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "jsx-a11y", "import"],
+  "rules": {
+    "linebreak-style": 0,
+    "react/jsx-props-no-spreading": 0,
+    "comma-dangle": 0,
+    "no-underscore-dangle": 0,
+    "react/prop-types": 0,
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "global-require": "off",
+    "import/prefer-default-export": "off",
+    "template-curly-spacing": "off",
+    "indent": "off",
+    "prefer-template": "off",
+    "no-multiple-empty-lines": "off",
+    "react/destructuring-assignment": "off",
+    "no-unused-expressions": ["error", { "allowTaggedTemplates": true }],
+    "no-nested-ternary": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js"]
+      }
+    }
+  }
+}

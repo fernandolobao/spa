@@ -1,4 +1,5 @@
-import { Provider } from './Context/Provider'
+import React from 'react';
+import { Provider } from './Context/Provider';
 import { Dashboard } from './Pages';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

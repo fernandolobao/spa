@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { DesignToken } from '../../../Style';
 
-const StyledExpenses = styled.div.attrs({ className: 'expenses'})`
+const StyledExpenses = styled.div.attrs({ className: 'expenses' })`
   .columns {
     display: flex;
     flex-direction: row;

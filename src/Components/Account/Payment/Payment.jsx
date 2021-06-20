@@ -7,7 +7,6 @@ import {
 import StyledPayment from './Payment.style';
 import StyledExpenses from '../Expenses/Expenses.style';
 import { Icon } from '../../Icon';
-import { Context } from '../../../Context/Context';
 import { History } from '../Expenses/History';
 import { CodeTransfer } from '../CodeTransfer';
 import { ReadCamera } from '../ReadCamera';
@@ -133,38 +132,36 @@ const Payment = ({
           </div>
         </Form>
       </div>
-      <Context.Consumer>
-        {context && (
-          <>
-            <StyledExpenses>
-              <History transactions={context.history} paymentValue />
-            </StyledExpenses>
-            {show && (
-              <CodeTransfer
-                open={show}
-                onToggle={setShow}
-                isDeposit={false}
-                isWithdraw={false}
-                setBalance={context.setBalance}
-                setHistory={context.setHistory}
-                seconds={10}
-                codeValue={payloadBuilder(
-                  context.agency,
-                  context.account,
-                  context.name,
-                  context.value
-                )}
-              />
-            )}
-            {camera && (
-              <ReadCamera
-                open={camera}
-                onToggle={setCamera}
-              />
-            )}
-          </>
-        )}
-      </Context.Consumer>
+      {context && (
+        <>
+          <StyledExpenses>
+            <History transactions={context.history} paymentValue />
+          </StyledExpenses>
+          {show && (
+            <CodeTransfer
+              open={show}
+              onToggle={setShow}
+              isDeposit={false}
+              isWithdraw={false}
+              setBalance={context.setBalance}
+              setHistory={context.setHistory}
+              seconds={10}
+              codeValue={payloadBuilder(
+                context.agency,
+                context.account,
+                context.name,
+                context.value
+              )}
+            />
+          )}
+          {camera && (
+            <ReadCamera
+              open={camera}
+              onToggle={setCamera}
+            />
+          )}
+        </>
+      )}
     </StyledPayment>
   );
 };

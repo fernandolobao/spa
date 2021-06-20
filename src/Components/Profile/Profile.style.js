@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { DesignToken } from '../../Style';
 
-export const StyledProfile = styled.div.attrs({ className: 'profile'})`
+export const StyledProfile = styled.div.attrs({ className: 'profile' })`
   .greetings {
     display: flex;
     align-items: center;

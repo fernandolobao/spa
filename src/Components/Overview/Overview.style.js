@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { DesignToken } from '../../Style';
 
-const StyledOverview = styled.div.attrs({ className: 'container-fluid'})`
+const StyledOverview = styled.div.attrs({ className: 'container-fluid' })`
   .card-wrapper {
     position: relative;
   

@@ -111,8 +111,7 @@ export const creditCards = [
     flag: 'mastercard',
     status: 'active',
     money: 'BRL'
-  }
-  ,
+  },
   {
     number: 3313282964157777,
     good: '11/26',

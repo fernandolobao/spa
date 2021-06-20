@@ -7,14 +7,12 @@ import {
 import StyledDeposit from './Deposit.style';
 import StyledExpenses from '../Expenses/Expenses.style';
 import { Icon } from '../../Icon';
-import { Context } from '../../../Context/Context';
 import { History } from '../Expenses/History';
 import { CodeTransfer } from '../CodeTransfer';
 import { ReadCamera } from '../ReadCamera';
 
 const Deposit = ({
-  setBalance,
-  setHistory
+  context
 }) => {
   const [value, setValue] = useState('');
   const [valid, setValid] = useState(false);
@@ -23,8 +21,8 @@ const Deposit = ({
   const handleChange = (e) => {
     setValue(e.target.value);
     setValid(e.target.value.match(/[0-9]+[,.][0-9]{2}/gi));
-  }
-  const payloadBuilder = ({agency, account, name}) => {
+  };
+  const payloadBuilder = (agency, account, name) => {
     const temp = {
       name,
       agency,
@@ -32,10 +30,10 @@ const Deposit = ({
       value
     };
     return temp;
-  }
+  };
 
   return (
-    <StyledDeposit>
+    <StyledDeposit data-testid="deposit">
       <div className="input">
         <Form>
           <Button variant="link" onClick={() => setCamera(true)}>
@@ -45,9 +43,11 @@ const Deposit = ({
             />
           </Button>
           <div>
-            <Form.Label>Use a câmera para ler o QRCode ou digite o valor para gerar um código.</Form.Label>
+            <Form.Label>
+              Use a câmera para ler o QRCode ou digite o valor para gerar um código.
+            </Form.Label>
             <InputGroup>
-            <InputGroup.Prepend>
+              <InputGroup.Prepend>
                 <InputGroup.Text>R$</InputGroup.Text>
               </InputGroup.Prepend>
               <Form.Control
@@ -61,14 +61,14 @@ const Deposit = ({
                   <Button
                     variant="link"
                     disabled={!valid && value !== ''}
-                    onClick={!valid && value !== '' ? () => {}  : () => setShow(true)}
+                    onClick={!valid && value !== '' ? () => {} : () => setShow(true)}
                   >
                     <Icon
                       icon="download"
                       size={16}
                     />
                   </Button>
-                  </InputGroup.Text>
+                </InputGroup.Text>
               </InputGroup.Append>
               <Form.Control.Feedback type="invalid">
                 Digite apenas o valor (ex.: XX,XX)
@@ -77,34 +77,37 @@ const Deposit = ({
           </div>
         </Form>
       </div>
-      <Context.Consumer>
-        {context => (
-          <>
-            <StyledExpenses>
-              <History transactions={context.history} inValue />
-            </StyledExpenses>
-            {show && (
-              <CodeTransfer
-                open={show}
-                onToggle={setShow}
-                isDeposit
-                isWithdraw={false}
-                setBalance={setBalance}
-                setHistory={setHistory}
-                codeValue={payloadBuilder(context.agency, context.account, context.name, context.value)} />
-            )}
-            {camera && (
-              <ReadCamera
-                open={camera}
-                onToggle={setCamera}
-              />
-            )}
-          </>
-        )}
-      </Context.Consumer>
+      {context && (
+        <>
+          <StyledExpenses>
+            <History transactions={context.history} inValue />
+          </StyledExpenses>
+          {show && (
+            <CodeTransfer
+              open={show}
+              onToggle={setShow}
+              isDeposit
+              isWithdraw={false}
+              setBalance={context.setBalance}
+              setHistory={context.setHistory}
+              codeValue={payloadBuilder(
+                context.agency,
+                context.account,
+                context.name
+              )}
+            />
+          )}
+          {camera && (
+            <ReadCamera
+              open={camera}
+              onToggle={setCamera}
+            />
+          )}
+        </>
+      )}
     </StyledDeposit>
   );
-}
+};
 
 export {
   Deposit

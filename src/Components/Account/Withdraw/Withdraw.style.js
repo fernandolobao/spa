@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { DesignToken } from '../../../Style';
 
-const StyledWithdraw = styled.div.attrs({ className: 'withdraw'})`
+const StyledWithdraw = styled.div.attrs({ className: 'withdraw' })`
   .input {
     margin-bottom: ${DesignToken('$spacing-md')};
     form {

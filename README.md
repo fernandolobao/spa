@@ -15,14 +15,25 @@ Para gerar json com design tokens: `npm run watch:css`
 
 > Testes usam Jest e o Husky faz a orquestação de quais testes devem rodar e roda todos antes de qualquer push.
 
+___
 ## Extrato
-Onde é mostrado um resumo de todas as transações divididas por entrada e saída (tanto retiradas quanto pagamentos)
+Onde é mostrado um resumo de todas as transações divididas por entrada e saída (tanto retiradas quanto pagamentos).
 
+___
 ## Depósito
-É esperado que o usuário use o celular para ler os QRCodes para confirmá-los.
+É esperado que o usuário use o celular para ler os QRCodes para confirmá-los. Também é mostrada uma lista com as últimas entradas da conta.
 
+___
 ## Resgate
-É esperado que o usuário use o celular para ler os QRCodes para confirmá-los.
+É esperado que o usuário use o celular para ler os QRCodes para confirmá-los. Também é mostrada uma lista com as últimas saídas da conta.
 
+___
 ## Pagamentos
-É esperado que o usuário use o celular para ler os QRCodes para confirmá-los.
+É esperado que o usuário use o celular para ler os QRCodes para confirmá-los. Também é mostrada uma lista com os últimos pagamentos.
+
+## Utils
+### Pagar com a Câmera
+Realmente funciona e lê códigos de barra corretamente.
+
+### Testes
+Foram feitos testes para as funcionalidades básicas e componentes de ícone e histórico.

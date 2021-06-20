@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { DesignToken } from '../../../Style';
 
-const StyledPayment = styled.div.attrs({ className: 'payment'})`
+const StyledPayment = styled.div.attrs({ className: 'payment' })`
   .input {
     margin-bottom: ${DesignToken('$spacing-md')};
     form {

@@ -58,13 +58,13 @@ const Account = () => {
               <Expenses transactions={context.history} />
             </Tab.Pane>
             <Tab.Pane eventKey="deposito" active={key === 'deposito'}>
-              <Deposit setBalance={context.setBalance} setHistory={context.setHistory} />
+              <Deposit context={context} />
             </Tab.Pane>
             <Tab.Pane eventKey="resgate" active={key === 'resgate'}>
-              <Withdraw setBalance={context.setBalance} setHistory={context.setHistory} />
+              <Withdraw context={context} />
             </Tab.Pane>
             <Tab.Pane eventKey="pagamento" active={key === 'pagamento'}>
-              <Payment />
+              <Payment context={context} />
             </Tab.Pane>
           </Tab.Content>
         </StyledAccount>

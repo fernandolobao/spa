@@ -1,11 +1,11 @@
 import React from 'react';
 import { format } from 'date-fns';
-import { ptBR } from 'date-fns/locale'
+import { ptBR } from 'date-fns/locale';
 import { Icon } from '../../Icon';
 
 const formatDate = (date) => {
   if (!date) return false;
-  return format(date, 'PPP', { locale: ptBR})
+  return format(date, 'PPP', { locale: ptBR });
 };
 
 const History = ({
@@ -42,7 +42,7 @@ const History = ({
         <ul>
           {transactions.filter((transaction) => {
             if (transaction.type === 'out' || transaction.type === 'payment') return transaction;
-            return false
+            return false;
           }).filter(Boolean).reverse().map((transaction) => (
             <li key={transaction.id}>
               <div className={`icon-wrapper ${transaction.type}`}>
@@ -66,7 +66,7 @@ const History = ({
         <ul>
           {transactions.filter((transaction) => {
             if (transaction.type === 'payment') return transaction;
-            return false
+            return false;
           }).filter(Boolean).reverse().map((transaction) => (
             <li key={transaction.id}>
               <div className={`icon-wrapper ${transaction.type}`}>

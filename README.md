@@ -31,9 +31,20 @@ ___
 ## Pagamentos
 É esperado que o usuário use o celular para ler os QRCodes para confirmá-los. Também é mostrada uma lista com os últimos pagamentos.
 
+---
 ## Utils
 ### Pagar com a Câmera
 Realmente funciona e lê códigos de barra corretamente.
 
 ### Testes
 Foram feitos testes para as funcionalidades básicas e componentes de ícone e histórico.
+
+# TODO
+
+✅ Testes unitários
+
+⬜️ Melhorar testes para verificar todas as funcionalidades até o fim.
+
+⬜️ Autenticação usando token
+
+⬜️ Loader spinners para troca de telas com mínimo de 150ms de espera.
